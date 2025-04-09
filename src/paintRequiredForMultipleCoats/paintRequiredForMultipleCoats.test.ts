@@ -7,21 +7,27 @@ describe('paintRequiredForMultipleCoats', () => {
     expect(paintRequiredForMultipleCoats(150, 15, 4)).toBe(40);
   });
 
-  test('should return 0 for area of 0', () => {
-    expect(paintRequiredForMultipleCoats(0, 10, 2)).toBe(0);
+  test('should throw an error for area of 0', () => {
+    expect(() => paintRequiredForMultipleCoats(0, 10, 2)).toThrow("Area, coverage per liter, and coats must be positive and non-zero");
   });
 
-  test('should return 0 for coveragePerLiter of 0', () => {
-    expect(paintRequiredForMultipleCoats(100, 0, 2)).toBe(Infinity);
+  test('should throw an error for coverage per liter of 0', () => {
+    expect(() => paintRequiredForMultipleCoats(100, 0, 2)).toThrow("Area, coverage per liter, and coats must be positive and non-zero");
   });
 
-  test('should handle negative values correctly', () => {
-    expect(paintRequiredForMultipleCoats(-100, 10, 2)).toBe(-20);
-    expect(paintRequiredForMultipleCoats(100, -10, 2)).toBe(-20);
-    expect(paintRequiredForMultipleCoats(100, 10, -2)).toBe(-20);
+  test('should throw an error for coats of 0', () => {
+    expect(() => paintRequiredForMultipleCoats(100, 10, 0)).toThrow("Area, coverage per liter, and coats must be positive and non-zero");
   });
 
-  test('should handle coats of 0 correctly', () => {
-    expect(paintRequiredForMultipleCoats(100, 10, 0)).toBe(0);
+  test('should throw an error for negative area', () => {
+    expect(() => paintRequiredForMultipleCoats(-100, 10, 2)).toThrow("Area, coverage per liter, and coats must be positive and non-zero");
+  });
+
+  test('should throw an error for negative coverage per liter', () => {
+    expect(() => paintRequiredForMultipleCoats(100, -10, 2)).toThrow("Area, coverage per liter, and coats must be positive and non-zero");
+  });
+
+  test('should throw an error for negative coats', () => {
+    expect(() => paintRequiredForMultipleCoats(100, 10, -2)).toThrow("Area, coverage per liter, and coats must be positive and non-zero");
   });
 });
