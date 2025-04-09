@@ -7,21 +7,27 @@ describe('calculateTotalCost', () => {
     expect(calculateTotalCost(150, 100)).toBe(250);
   });
 
-  test('should return paint cost when labor cost is 0', () => {
-    expect(calculateTotalCost(100, 0)).toBe(100);
+  test('should throw an error when paint cost is 0', () => {
+    expect(() => calculateTotalCost(0, 50)).toThrow("Costs should not be zero");
   });
 
-  test('should return labor cost when paint cost is 0', () => {
-    expect(calculateTotalCost(0, 50)).toBe(50);
+  test('should throw an error when labor cost is 0', () => {
+    expect(() => calculateTotalCost(100, 0)).toThrow("Costs should not be zero");
   });
 
-  test('should handle negative values correctly', () => {
-    expect(calculateTotalCost(-100, 50)).toBe(-50);
-    expect(calculateTotalCost(100, -50)).toBe(50);
-    expect(calculateTotalCost(-100, -50)).toBe(-150);
+  test('should throw an error for negative paint cost', () => {
+    expect(() => calculateTotalCost(-100, 50)).toThrow("Costs should be positive");
   });
 
-  test('should return 0 when both costs are 0', () => {
-    expect(calculateTotalCost(0, 0)).toBe(0);
+  test('should throw an error for negative labor cost', () => {
+    expect(() => calculateTotalCost(100, -50)).toThrow("Costs should be positive");
+  });
+
+  test('should handle large numbers correctly', () => {
+    expect(calculateTotalCost(1000000, 500000)).toBe(1500000);
+  });
+
+  test('should handle decimal values correctly', () => {
+    expect(calculateTotalCost(100.5, 50.25)).toBe(150.75);
   });
 });
