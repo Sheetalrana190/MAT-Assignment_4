@@ -15,7 +15,7 @@ describe('calculateCanvasDiagonal', () => {
   });
 
   test("should throw an error when width is negative", () => {
-    expect(() => calculateCanvasDiagonal(3, -4)).toThrow("width should be positive");
+    expect(() => calculateCanvasDiagonal(3, -4)).toThrow("Width should be positive");
   });
 
   test("should throw an error when length is zero", () => {
@@ -23,7 +23,7 @@ describe('calculateCanvasDiagonal', () => {
   });
 
   test("should throw an error when width is zero", () => {
-    expect(() => calculateCanvasDiagonal(3, 0)).toThrow("width should not be zero");
+    expect(() => calculateCanvasDiagonal(3, 0)).toThrow("Width should not be zero");
   });
 
   
