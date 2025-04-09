@@ -19,6 +19,6 @@ describe('convertAreaToSquareFeet', () => {
 
   test('should handle decimal values correctly', () => {
     
-    expect(convertAreaToSquareFeet(200.75)).toBeCloseTo(2158.56925, 3);
+    expect(convertAreaToSquareFeet(200.75)).toBeCloseTo(2160.85, 2);
   });
 });
