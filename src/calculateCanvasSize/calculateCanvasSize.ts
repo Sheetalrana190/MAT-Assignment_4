@@ -1,6 +1,20 @@
 export default function calculateCanvasSize(
-  length: string,
-  width: string
+  length: number,
+  width: number
 ) {
-  return parseInt(length) * parseInt(width);
+  if (length < 0){
+    throw new Error("Canvas Length should be possitive");
+  }
+  if (length == 0){
+    throw new Error("Length should not be zero");
+  }
+  if (width < 0){
+    throw new Error("Canvas width should be possitive");
+  }
+  if (width == 0){
+    throw new Error("width should not be zero");
+  }
+ 
+ 
+  return length * width;
 }
