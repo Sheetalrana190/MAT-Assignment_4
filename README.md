@@ -2,9 +2,15 @@
 
 Version: Alpaca
 
+## Description
+This project is a TypeScript-based automated testing framework for various calculations related to painting tasks. It includes functions to calculate total cost, canvas diagonal, painting time, paint required, and more.
+
+
 ## Purpose
 
-This repository houses the code we require for examples and assignments.
+This is for the assignment 4 submission.
+
+
 
 ## Repository Usage
 
